@@ -40,7 +40,7 @@
                   <strong>Gabung Mitra</strong>
                 </a>
                 <a class="button is-halo">
-                  <strong>Masuk</strong>
+                  Masuk
                 </a>
               </div>
             </div>
@@ -55,11 +55,6 @@
           aria-label="breadcrumbs"
         >
           <ul>
-            <li>
-              <a class="has-text-dark has-text-weight-medium" href="/"
-                >Halaman utama</a
-              >
-            </li>
             <li class="is-active has-text-weight-medium">
               <a href="#" aria-current="page">Kategori</a>
             </li>
@@ -71,7 +66,7 @@
           <!-- <p class="menu-label is-hidden-touch">General</p> -->
           <div class="content px-2 py-2">
             <b>Kategori</b>
-            <p>______________</p>
+            <p>----------------</p>
             <div class="field">
               <b-checkbox>Konsep Desain Rumah</b-checkbox>
             </div>
@@ -89,7 +84,8 @@
             </div>
           </div>
           <div class="content px-2 py-2">
-            <p><strong>BIAYA</strong></p>
+            <b>Biaya</b>
+            <p>----------------</p>
             <b-field>
               <b-input v-model="value" type="number"></b-input>
             </b-field>
@@ -141,8 +137,8 @@
         <div>
           <!-- class="content px-2 py-2" -->
           <section class="section">
-            <div class="title">
-              <strong>JASA</strong>
+            <div class="title is-3 mb-2 mx-4">
+              <strong>Konsultan</strong>
             </div>
             <b-carousel-list v-model="test" :data="items" :items-to-show="4">
               <template slot="item" slot-scope="list">
@@ -213,8 +209,8 @@
                 </div>
               </template>
             </b-carousel-list>
-            <div class="title">
-              <strong>JASA</strong>
+            <div class="title is-3 mb-2 mt-4 mx-2 px-2">
+              <strong>Jasa</strong>
             </div>
             <b-carousel-list v-model="test" :data="items" :items-to-show="4">
               <template slot="item" slot-scope="list">

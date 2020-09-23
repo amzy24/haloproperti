@@ -28,7 +28,7 @@
                   <strong>Gabung Mitra</strong>
                 </a>
                 <a class="button is-halo">
-                  <strong>Masuk</strong>
+                  Masuk
                 </a>
               </div>
             </div>
@@ -90,12 +90,12 @@
           </div>
           <div class="KATEGORI-LIST title is-6">
             <aside>
-              <a href="/kategori" class="has-text-dark">Konsultan</a><br />
-              <a href="/kategori" class="has-text-dark">Persewaan</a><br />
-              <a href="/kategori" class="has-text-dark">Produsen</a><br />
-              <a href="/kategori" class="has-text-dark">Tenaga</a><br />
-              <a href="/kategori" class="has-text-dark">Jasa</a><br />
-              <a href="/kategori" class="has-text-dark">Toko</a>
+              <a href="/kategori" class="has-text-grey-dark">Konsultan</a><br />
+              <a href="/kategori" class="has-text-grey-dark">Persewaan</a><br />
+              <a href="/kategori" class="has-text-grey-dark">Produsen</a><br />
+              <a href="/kategori" class="has-text-grey-dark">Tenaga</a><br />
+              <a href="/kategori" class="has-text-grey-dark">Jasa</a><br />
+              <a href="/kategori" class="has-text-grey-dark">Toko</a>
             </aside>
           </div>
         </div>

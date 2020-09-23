@@ -40,7 +40,7 @@
                   <strong>Gabung Mitra</strong>
                 </a>
                 <a class="button is-halo">
-                  <strong>Masuk</strong>
+                  Masuk
                 </a>
               </div>
             </div>
@@ -101,101 +101,106 @@
               </div>
             </div>
             <div class="card-pp" v-for="(item, i) in items" :key="i">
-              <div class="columns">
-                <div class="column is-2 px-0">
-                  <figure class="image">
-                    <img :src="item.image" alt="" />
-                  </figure>
-                </div>
-                <div class="column">
-                  <p class="is-size-7 has-text-weight-medium">
-                    {{ item.title }}
-                  </p>
-                  <p class="control" v-if="items.rating">
-                    <b-rate :value="items.rating" show-score="disabled" />
-                  </p>
-                  <b-rate
-                    v-model="rate"
-                    :icon-pack="packs"
-                    :icon="icons"
-                    :max="maxs"
-                    :size="sizes"
-                    :locale="locale"
-                    :show-score="score"
-                    :custom-text="custom"
-                    :show-text="text"
-                    :texts="texts"
-                    :rtl="isRtl"
-                    :spaced="isSpaced"
-                    :disabled="isDisabled"
-                    class="mt-3 mb-1"
-                  ></b-rate>
-                  <p></p>
-                </div>
-                <div class="JUMLAH column is-2 has-text-centered">
-                  <b-dropdown v-model="is1" aria-role="list">
-                    <button class="button" type="button" slot="trigger">
-                      <template v-if="is1">
-                        <span>1</span>
-                      </template>
-                      <template v-else-if="is2">
-                        <span>2</span>
-                      </template>
-                      <template v-else-if="is3">
-                        <span>3</span>
-                      </template>
-                      <template v-else-if="is4">
-                        <span>4</span>
-                      </template>
-                      <template v-else>
-                        <span>5</span>
-                      </template>
-                      <b-icon icon="menu-down"></b-icon>
-                    </button>
+              <div class="container">
+                <p class="columns is-size-6 has-text-weight-semibold my-1">
+                  Jokowi
+                </p>
+                <div class="columns">
+                  <div class="column is-2 px-0">
+                    <figure class="image">
+                      <img :src="item.image" alt="" />
+                    </figure>
+                  </div>
+                  <div class="column is-vcentered">
+                    <p class="is-size-7 has-text-weight-medium">
+                      {{ item.title }}
+                    </p>
+                    <p class="control" v-if="items.rating">
+                      <b-rate :value="items.rating" show-score="disabled" />
+                    </p>
+                    <b-rate
+                      v-model="rate"
+                      :icon-pack="packs"
+                      :icon="icons"
+                      :max="maxs"
+                      :size="sizes"
+                      :locale="locale"
+                      :show-score="score"
+                      :custom-text="custom"
+                      :show-text="text"
+                      :texts="texts"
+                      :rtl="isRtl"
+                      :spaced="isSpaced"
+                      :disabled="isDisabled"
+                      class="mt-3 mb-1"
+                    ></b-rate>
+                    <p></p>
+                  </div>
+                  <div class="JUMLAH column is-2 has-text-centered">
+                    <b-dropdown v-model="is1" aria-role="list">
+                      <button class="button" type="button" slot="trigger">
+                        <template v-if="is1">
+                          <span>1</span>
+                        </template>
+                        <template v-else-if="is2">
+                          <span>2</span>
+                        </template>
+                        <template v-else-if="is3">
+                          <span>3</span>
+                        </template>
+                        <template v-else-if="is4">
+                          <span>4</span>
+                        </template>
+                        <template v-else>
+                          <span>5</span>
+                        </template>
+                        <b-icon icon="menu-down"></b-icon>
+                      </button>
 
-                    <b-dropdown-item :value="true" aria-role="listitem">
-                      <div class="media">
-                        <div class="media-content">
-                          <h6>1</h6>
+                      <b-dropdown-item :value="true" aria-role="listitem">
+                        <div class="media">
+                          <div class="media-content">
+                            <h6>1</h6>
+                          </div>
                         </div>
-                      </div>
-                    </b-dropdown-item>
+                      </b-dropdown-item>
 
-                    <b-dropdown-item :value="false" aria-role="listitem">
-                      <div class="media">
-                        <div class="media-content">
-                          <h6>2</h6>
+                      <b-dropdown-item :value="false" aria-role="listitem">
+                        <div class="media">
+                          <div class="media-content">
+                            <h6>2</h6>
+                          </div>
                         </div>
-                      </div>
-                    </b-dropdown-item>
+                      </b-dropdown-item>
 
-                    <b-dropdown-item :value="false" aria-role="listitem">
-                      <div class="media">
-                        <div class="media-content">
-                          <h6>3</h6>
+                      <b-dropdown-item :value="false" aria-role="listitem">
+                        <div class="media">
+                          <div class="media-content">
+                            <h6>3</h6>
+                          </div>
                         </div>
-                      </div>
-                    </b-dropdown-item>
+                      </b-dropdown-item>
 
-                    <b-dropdown-item :value="false" aria-role="listitem">
-                      <div class="media">
-                        <div class="media-content">
-                          <h6>4</h6>
+                      <b-dropdown-item :value="false" aria-role="listitem">
+                        <div class="media">
+                          <div class="media-content">
+                            <h6>4</h6>
+                          </div>
                         </div>
-                      </div>
-                    </b-dropdown-item>
+                      </b-dropdown-item>
 
-                    <b-dropdown-item :value="false" aria-role="listitem">
-                      <div class="media">
-                        <div class="media-content">
-                          <h6>5</h6>
+                      <b-dropdown-item :value="false" aria-role="listitem">
+                        <div class="media">
+                          <div class="media-content">
+                            <h6>5</h6>
+                          </div>
                         </div>
-                      </div>
-                    </b-dropdown-item>
-                  </b-dropdown>
-                </div>
-                <div class="column is-2 is-size-6 has-text-right px-0">
-                  <p>Rp. 1.500.000</p>
+                      </b-dropdown-item>
+                    </b-dropdown>
+                  </div>
+                  <div class="column is-2 is-size-6 has-text-right px-0">
+                    <p>Rp. 1.500.000</p>
+                  </div>
                 </div>
               </div>
               <div class="container">
@@ -306,7 +311,7 @@
                     to="/pembayaran"
                     type="is-halo"
                     expanded
-                    ><strong>Checkout</strong></b-button
+                    >Checkout</b-button
                   >
                 </div>
               </div>
@@ -351,6 +356,22 @@ export default {
       is2: true,
       is3: true,
       is4: true,
+      // STEPS
+      activeStep: 0,
+
+      showSocial: false,
+      isAnimated: true,
+      isRounded: true,
+      isStepsClickable: false,
+
+      hasNavigation: true,
+      customNavigation: false,
+      isProfileSuccess: false,
+
+      prevIcon: 'chevron-left',
+      nextIcon: 'chevron-right',
+      labelPosition: 'right',
+      mobileMode: 'minimalist',
     }
   },
 }
@@ -435,7 +456,7 @@ button.dropdown-item.is-active {
   margin: 0 auto;
 }
 .BREADCRUMB li {
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
 }
 .MAIN {
   margin-bottom: 8rem;

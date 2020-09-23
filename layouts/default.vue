@@ -12,22 +12,22 @@
             <div class="block">
               <a href="#">
                 <span class="icon mx-2">
-                  <b-icon icon="facebook" size="is-medium"> </b-icon
+                  <b-icon icon="facebook" custom-size="mdi-24px"> </b-icon
                 ></span>
               </a>
               <a href="#">
                 <span class="icon mx-2">
-                  <b-icon icon="twitter" size="is-medium"> </b-icon
+                  <b-icon icon="twitter" custom-size="mdi-24px"> </b-icon
                 ></span>
               </a>
               <a href="#">
                 <span class="icon mx-2">
-                  <b-icon icon="instagram" size="is-medium"> </b-icon
+                  <b-icon icon="instagram" custom-size="mdi-24px"> </b-icon
                 ></span>
               </a>
               <a href="#">
                 <span class="icon mx-2">
-                  <b-icon icon="youtube" size="is-medium"> </b-icon
+                  <b-icon icon="youtube" custom-size="mdi-24px"> </b-icon
                 ></span>
               </a>
             </div>
@@ -40,12 +40,12 @@
             <div class="column is-half">
               <a href="" class="has-text-dark">Tentang Kami</a><br />
               <a href="" class="has-text-dark">Layanan Kami</a><br />
-              <a href="" class="has-text-dark">Kebijakan Privasi</a>
+              <a href="" class="has-text-dark">Mitra Kami</a>
             </div>
             <div class="column is-half">
-              <a href="" class="has-text-dark">Partner Kami</a><br />
               <a href="" class="has-text-dark">Kontak Kami</a><br />
               <a href="" class="has-text-dark">Pusat Bantuan</a>
+              <a href="" class="has-text-dark">Kebijakan Privasi</a><br />
             </div>
           </div>
         </div>
@@ -80,6 +80,11 @@ export default {}
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Archivo&family=Teko:wght@300&display=swap');
+html,
+body {
+  font-family: 'Archivo', sans-serif !important;
+}
 .FOOTER {
   height: fit-content;
 }

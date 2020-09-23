@@ -258,24 +258,37 @@
               <div class="title is-5 container">Metode Pembayaran</div>
               <div class="BORDER columns is-size-6 pb-5 pt-4">
                 <b-tabs
-                  v-model="activeTab"
-                  :multiline="multiline"
-                  type="is-toggle"
+                  :position="atRight ? 'is-right' : ''"
+                  size="is-medium"
+                  type="is-boxed"
+                  vertical
                 >
-                  <template v-for="tab in tabs">
-                    <b-tab-item
-                      v-if="tab.displayed"
-                      :key="tab.id"
-                      :value="tab.id"
-                      :label="tab.label"
-                    >
-                      <ul>
-                        <li>
-                          {{ tab.content }}
-                        </li>
-                      </ul>
-                    </b-tab-item>
-                  </template>
+                  <b-tab-item label="Cash">
+                    Bayar di tempat
+                  </b-tab-item>
+
+                  <b-tab-item label="Bank Transfer">
+                    <div class="field">
+                      <b-radio v-model="radio" native-value="BCA">
+                        Bank BCA
+                      </b-radio>
+                    </div>
+                    <div class="field">
+                      <b-radio v-model="radio" native-value="BNI">
+                        Bank BNI
+                      </b-radio>
+                    </div>
+                    <div class="field">
+                      <b-radio v-model="radio" native-value="BRI">
+                        Bank BRI
+                      </b-radio>
+                    </div>
+                    <div class="field">
+                      <b-radio v-model="radio" native-value="Mandiri">
+                        Bank Mandiri
+                      </b-radio>
+                    </div>
+                  </b-tab-item>
                 </b-tabs>
               </div>
             </div>
@@ -297,7 +310,7 @@
                     </div>
                   </div>
                   <div>
-                    <div class="columns">
+                    <div class="columns is-vcentered">
                       <div
                         class="column is-size-6 has-text-weight-semibold pb-0"
                       >
@@ -372,7 +385,7 @@
                       </ul>
                     </div>
                   </div>
-                  <div class="columns pt-2">
+                  <div class="columns pt-2 is-vcentered">
                     <div class="column is-size-6 has-text-weight-semibold pb-0">
                       Jumlah order (Hari)
                     </div>
@@ -382,7 +395,7 @@
                       2
                     </div>
                   </div>
-                  <div class="columns">
+                  <div class="columns is-vcentered">
                     <div class="column is-size-6 has-text-weight-semibold">
                       Biaya layanan
                     </div>
@@ -392,7 +405,7 @@
                       Rp. 50.000
                     </div>
                   </div>
-                  <div class="TEXT-TOTAL columns">
+                  <div class="TEXT-TOTAL columns is-vcentered">
                     <div class="column is-3 is-size-6 pl-0">
                       <b>Total</b>
                     </div>
@@ -403,10 +416,10 @@
                   <div class="buttons">
                     <b-button
                       tag="router-link"
-                      to="/pembayaran"
+                      to="/selesai"
                       type="is-halo"
                       expanded
-                      ><strong>Bayar</strong></b-button
+                      >Bayar</b-button
                     >
                   </div>
                 </div>
@@ -436,32 +449,8 @@ export default {
             'https://cdna.artstation.com/p/assets/images/images/010/098/130/large/sajal-kr-chand-flat-landscape.jpg?1522574693',
         },
       ],
+      radio: 'default',
     }
-  },
-  computed: {
-    baseTabs() {
-      return [
-        {
-          id: 'cash',
-          label: 'Cash',
-          content: 'Bayar di tempat',
-          displayed: true,
-        },
-        {
-          id: 'bank',
-          label: 'Transfer Bank',
-          content: 'Bank BCA Bank BNI Bank BRI',
-          displayed: true,
-        },
-      ]
-    },
-    tabs() {
-      const tabs = [...this.baseTabs]
-      if (this.showBooks) {
-        tabs.splice(tabs.length - 2, 0, this.bookTab)
-      }
-      return tabs
-    },
   },
 }
 </script>
@@ -498,7 +487,7 @@ export default {
   margin: 0 auto;
 }
 .BREADCRUMB li {
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
 }
 .has-text-halo {
   color: #f79351 !important;

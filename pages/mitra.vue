@@ -32,7 +32,7 @@
               </b-input>
             </b-field>
           </div>
-
+          
           <div id="navbarBasicExample" class="navbar-menu">
             <div class="navbar-end">
               <div class="navbar-item">
@@ -220,11 +220,6 @@
         >
           <ul>
             <li>
-              <a class="has-text-dark has-text-weight-medium" href="/"
-                >Halaman utama</a
-              >
-            </li>
-            <li>
               <a class="has-text-dark has-text-weight-medium" href="/kategori"
                 >Kategori</a
               >
@@ -371,7 +366,7 @@
                     class="HARGA button is-size-5 is-small has-text-centered mt-5 is-static"
                     to="/pesanan"
                   >
-                    <strong>{{ tab.button }}</strong>
+                    {{ tab.button }}
                   </b-button>
                 </b-tab-item>
               </template>
@@ -379,12 +374,122 @@
           </div>
           <div class="container">
             <b-button
-              tag="router-link"
               class="BUTTON-CHATMITRA button is-medium has-text-centered is-light mt-4"
-              to="/pesanan"
+              @click="isComponentModalActive = true"
             >
               <strong>Hubungi Mitra Untuk Memesan</strong>
             </b-button>
+            <b-modal
+              v-model="isComponentModalActive"
+              has-modal-card
+              trap-focus
+              :destroy-on-hide="false"
+              aria-role="dialog"
+              aria-modal
+            >
+              <template #default="props">
+                <modal-form v-bind="formProps" @close="props.close">
+                  <div class="modal-card" style="width: auto;">
+                    <header class="modal-card-head">
+                      <p class="modal-card-title">Request</p>
+                      <button
+                        type="button"
+                        class="delete"
+                        @click="$emit('close')"
+                      />
+                    </header>
+                    <section class="modal-card-body">
+                      <div class="REQUEST container">
+                        <div class="columns">
+                          <div class="column is-half">
+                            <div class="DISPLAY container">Chat</div>
+                            <div class="CHAT columns mt-1 is-vcentered">
+                              <div class="column control">
+                                <textarea
+                                  class="textarea has-fixed-size is-small"
+                                  placeholder="Text area"
+                                  rows="1"
+                                ></textarea>
+                              </div>
+                              <div class="column is-3">
+                                <b-button class="is-small">Kirim</b-button>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="column is-half">
+                            <div class="DATE has-text-centered">
+                              <div class="title is-6 has-text-weight-bold mb-2">
+                                Pilih tanggal booking
+                              </div>
+                              <div>
+                                <span>
+                                  <b-datepicker
+                                    inline
+                                    v-model="date.date"
+                                    :events="date.events"
+                                    :indicators="indicators"
+                                    :unselectable-days-of-week="[0]"
+                                  >
+                                  </b-datepicker>
+                                </span>
+                              </div>
+                            </div>
+                            <div class="container mx-6">
+                              <div class="RADIO mt-2">
+                                <b-field>
+                                  <b-radio-button
+                                    v-model="radioButton"
+                                    native-value="Standar"
+                                    type="is-halo"
+                                    expanded
+                                  >
+                                    Standar
+                                  </b-radio-button>
+
+                                  <b-radio-button
+                                    v-model="radioButton"
+                                    native-value="Medium"
+                                    type="is-halo"
+                                    expanded
+                                  >
+                                    Medium
+                                  </b-radio-button>
+
+                                  <b-radio-button
+                                    v-model="radioButton"
+                                    native-value="Premium"
+                                    type="is-halo"
+                                    expanded
+                                  >
+                                    Premium
+                                  </b-radio-button>
+                                </b-field>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+                    <footer class="modal-card-foot">
+                      <button
+                        class="button"
+                        type="button"
+                        @click="$emit('close')"
+                      >
+                        Close
+                      </button>
+                      <b-button
+                        tag="router-link"
+                        to="/pesanan"
+                        class="button is-primary"
+                      >
+                        Pesan
+                      </b-button>
+                    </footer>
+                  </div>
+                </modal-form>
+              </template>
+            </b-modal>
           </div>
         </div>
       </div>
@@ -441,7 +546,7 @@
                   <p><small>1 Hari lalu</small></p>
                 </div>
                 <div class="column pr-2">
-                  <p><strong>Pengiriman Terakhir</strong></p>
+                  <p><strong>Terakhir di Order</strong></p>
                   <p><small>4 Hari lalu</small></p>
                 </div>
               </div>
@@ -765,9 +870,9 @@
 </template>
 
 <script>
-// const thisMonth = new Date().getMonth()
-// const thisYear = new Date().getFullYear()
-// const thisDay = new Date().getDate()
+const thisMonth = new Date().getMonth()
+const thisYear = new Date().getFullYear()
+const thisDay = new Date().getDate()
 
 export default {
   computed: {
@@ -809,30 +914,31 @@ export default {
   },
   data() {
     return {
+      isComponentModalActive: false,
       isCard2ModalActive: false,
       isCardModalActive: false,
       // DATA DATE
-      // date: {
-      //   // bars: true,
-      //   date: new Date(thisYear, thisMonth, thisDay),
-      //   events: [
-      //     new Date(2020, 7, 15),
-      //     new Date(2020, 7, 17),
-      //     new Date(2020, 7, 19),
-      //     new Date(2020, 7, 22),
-      //     new Date(2020, 7, 24),
-      //     new Date(2020, 7, 25),
-      //     new Date(2020, 7, 28),
-      //     new Date(2020, 8, 3),
-      //     new Date(2020, 8, 4),
-      //     new Date(2020, 8, 5),
-      //     new Date(2020, 8, 6),
-      //     new Date(2020, 8, 8),
-      //     new Date(2020, 8, 11),
-      //     new Date(2020, 8, 13),
-      //     new Date(2020, 8, 17),
-      //   ],
-      // },
+      date: {
+        // bars: true,
+        date: new Date(thisYear, thisMonth, thisDay),
+        events: [
+          new Date(2020, 7, 15),
+          new Date(2020, 7, 17),
+          new Date(2020, 7, 19),
+          new Date(2020, 7, 22),
+          new Date(2020, 7, 24),
+          new Date(2020, 7, 25),
+          new Date(2020, 7, 28),
+          new Date(2020, 8, 3),
+          new Date(2020, 8, 4),
+          new Date(2020, 8, 5),
+          new Date(2020, 8, 6),
+          new Date(2020, 8, 8),
+          new Date(2020, 8, 11),
+          new Date(2020, 8, 13),
+          new Date(2020, 8, 17),
+        ],
+      },
       progress: {
         indeterminate: false,
         type: null,
@@ -895,6 +1001,7 @@ export default {
         ],
       },
       activeTab: 0,
+      radioButton: '',
     }
   },
   methods: {
@@ -1145,6 +1252,7 @@ li {
   border-radius: 0.7rem;
   background-color: #f79351;
   width: 100%;
+  color: whitesmoke;
 }
 .CARD-MITRA {
   border-top-style: ridge;
@@ -1202,6 +1310,20 @@ li {
 .dropdown-item,
 .dropdown .dropdown-menu .has-link a {
   padding: 0rem;
+}
+.REQUEST {
+  max-height: 450px;
+  width: 800px;
+}
+.DISPLAY {
+  border-style: solid;
+  border-color: darkgrey;
+  border-width: thin;
+  height: 350px;
+  border-radius: 0.25rem;
+}
+.CHAT {
+  display: flex;
 }
 /* -------------RESPONSIVE--------------- */
 @media screen and (max-width: 1024px) {

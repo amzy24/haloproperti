@@ -1,53 +1,5 @@
 <template>
-  <section class="ROOT section px-0 py-0">
-    <section class="HEADER section py-5 px-3 mx-6">
-      <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-          <a class="navbar-item" href="/">
-            <img src="~/assets/logo-halo.png" width="150" />
-          </a>
-
-          <a
-            role="button"
-            class="navbar-burger burger"
-            aria-label="menu"
-            aria-expanded="false"
-            data-target="navbarBasicExample"
-          >
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </a>
-        </div>
-
-        <div id="navbarBasicExample" class="navbar-menu">
-          <div class="navbar-start">
-            <b-field class="py-2 pl-4">
-              <b-input
-                placeholder="Pencarian . . . "
-                type="search"
-                icon-right="magnify"
-                icon-right-clickable="search"
-              >
-              </b-input>
-            </b-field>
-          </div>
-
-          <div class="navbar-end">
-            <div class="navbar-item">
-              <div class="buttons">
-                <a class="button is-light">
-                  <strong>Gabung Mitra</strong>
-                </a>
-                <a class="button is-halo">
-                  Masuk
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </nav>
-    </section>
+  <section>
     <nav class="navbar pt-2 mx-6">
       <div
         class="BREADCRUMB breadcrumb has-succeeds-separator is-small is-size-7 has-text-weight-medium"
@@ -102,101 +54,54 @@
             </div>
             <div class="card-pp" v-for="(item, i) in items" :key="i">
               <div class="container">
-                <p class="columns is-size-6 has-text-weight-semibold my-1">
-                  Jokowi
-                </p>
-                <div class="columns">
+                <div class="columns is-vcentered">
                   <div class="column is-2 px-0">
                     <figure class="image">
                       <img :src="item.image" alt="" />
                     </figure>
                   </div>
                   <div class="column is-vcentered">
+                    <div class="columns is-vcentered my-0">
+                      <div class="column is-half py-0">
+                        <p class="is-size-6 has-text-weight-semibold py-0">
+                          Jokowi
+                        </p>
+                      </div>
+                      <div class="column is-half py-0">
+                        <p class="control" v-if="items.rating">
+                          <b-rate :value="items.rating" show-score="disabled" />
+                        </p>
+                        <b-rate
+                          v-model="rate"
+                          :icon-pack="packs"
+                          :icon="icons"
+                          :max="maxs"
+                          :size="sizes"
+                          :locale="locale"
+                          :show-score="score"
+                          :custom-text="custom"
+                          :show-text="text"
+                          :texts="texts"
+                          :rtl="isRtl"
+                          :spaced="isSpaced"
+                          :disabled="isDisabled"
+                        ></b-rate>
+                      </div>
+                    </div>
                     <p class="is-size-7 has-text-weight-medium">
                       {{ item.title }}
                     </p>
-                    <p class="control" v-if="items.rating">
-                      <b-rate :value="items.rating" show-score="disabled" />
-                    </p>
-                    <b-rate
-                      v-model="rate"
-                      :icon-pack="packs"
-                      :icon="icons"
-                      :max="maxs"
-                      :size="sizes"
-                      :locale="locale"
-                      :show-score="score"
-                      :custom-text="custom"
-                      :show-text="text"
-                      :texts="texts"
-                      :rtl="isRtl"
-                      :spaced="isSpaced"
-                      :disabled="isDisabled"
-                      class="mt-3 mb-1"
-                    ></b-rate>
-                    <p></p>
                   </div>
                   <div class="JUMLAH column is-2 has-text-centered">
-                    <b-dropdown v-model="is1" aria-role="list">
-                      <button class="button" type="button" slot="trigger">
-                        <template v-if="is1">
-                          <span>1</span>
-                        </template>
-                        <template v-else-if="is2">
-                          <span>2</span>
-                        </template>
-                        <template v-else-if="is3">
-                          <span>3</span>
-                        </template>
-                        <template v-else-if="is4">
-                          <span>4</span>
-                        </template>
-                        <template v-else>
-                          <span>5</span>
-                        </template>
-                        <b-icon icon="menu-down"></b-icon>
-                      </button>
-
-                      <b-dropdown-item :value="true" aria-role="listitem">
-                        <div class="media">
-                          <div class="media-content">
-                            <h6>1</h6>
-                          </div>
-                        </div>
-                      </b-dropdown-item>
-
-                      <b-dropdown-item :value="false" aria-role="listitem">
-                        <div class="media">
-                          <div class="media-content">
-                            <h6>2</h6>
-                          </div>
-                        </div>
-                      </b-dropdown-item>
-
-                      <b-dropdown-item :value="false" aria-role="listitem">
-                        <div class="media">
-                          <div class="media-content">
-                            <h6>3</h6>
-                          </div>
-                        </div>
-                      </b-dropdown-item>
-
-                      <b-dropdown-item :value="false" aria-role="listitem">
-                        <div class="media">
-                          <div class="media-content">
-                            <h6>4</h6>
-                          </div>
-                        </div>
-                      </b-dropdown-item>
-
-                      <b-dropdown-item :value="false" aria-role="listitem">
-                        <div class="media">
-                          <div class="media-content">
-                            <h6>5</h6>
-                          </div>
-                        </div>
-                      </b-dropdown-item>
-                    </b-dropdown>
+                    <div class="select">
+                      <select>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                      </select>
+                    </div>
                   </div>
                   <div class="column is-2 is-size-6 has-text-right px-0">
                     <p>Rp. 1.500.000</p>
@@ -204,21 +109,34 @@
                 </div>
               </div>
               <div class="container">
-                <div
-                  class="RINCIAN is-size-7 has-text-right has-text-weight-normal"
-                >
-                  <a class="has-text-halo" href="">Tampilkan rincian paket</a>
-                </div>
                 <div class="RINCIAN-PAKET container pb-3">
-                  <div
-                    class="container is-size-5 mb-5 has-text-weight-semibold"
-                  >
-                    Paket Premium
+                  <div class="columns my-4 has-text-vcentered">
+                    <div
+                      class="column is-half is-size-5 has-text-weight-semibold has-text-left"
+                    >
+                      Paket Premium
+                    </div>
+                    <div
+                      class="column is-half is-size-7 has-text-right has-text-weight-normal"
+                    >
+                      <a
+                        class="has-text-halo"
+                        v-if="!showMore"
+                        @click="showMore = !showMore"
+                        >Tampilkan rincian paket</a
+                      >
+                      <a
+                        class="has-text-halo"
+                        v-if="showMore"
+                        @click="showMore = !showMore"
+                        >Sembunyikan rincian paket</a
+                      >
+                    </div>
                   </div>
                   <div
                     class="container is-size-7 has-text-grey has-text-weight-medium"
                   >
-                    <ul class="LIST columns is-multiline">
+                    <ul class="LIST columns is-multiline" v-if="showMore">
                       <li class="column is-one-quarter py-5">
                         <b-icon
                           icon="check"
@@ -329,6 +247,9 @@ export default {
   name: 'HomePage',
   data() {
     return {
+      isActive: false,
+      showMore: false,
+
       rate: 4.6,
       maxs: 5,
       sizes: 'is-small',
@@ -352,10 +273,6 @@ export default {
           rating: 4.4,
         },
       ],
-      is1: true,
-      is2: true,
-      is3: true,
-      is4: true,
       // STEPS
       activeStep: 0,
 
@@ -377,33 +294,6 @@ export default {
 }
 </script>
 <style>
-.ROOT {
-  margin: 0rem 6rem;
-}
-.has-background-halo {
-  background-color: #f79351;
-}
-.button.is-halo {
-  background-color: #f79351;
-  border-color: transparent;
-  color: #fff;
-  border-radius: 10px;
-}
-.navbar-start {
-  width: 80%;
-}
-.field.py-2 {
-  width: 80%;
-}
-.HEADER {
-  border-bottom-style: ridge;
-  border-color: hsl(0, 0%, 86%);
-  border-width: thin;
-}
-.navbar-start input {
-  border-radius: 8px;
-  border-color: darkgray;
-}
 /* --------------HEADER to MAIN-------------- */
 .sidebar {
   position: sticky;
@@ -431,14 +321,6 @@ a.dropdown-item.is-active,
 button.dropdown-item.is-active {
   /* background-color: #7957d5; */
   /* color: #fff; */
-}
-.button.is-halo {
-  border-color: transparent;
-  background-color: #f79351;
-  color: #fff;
-}
-.has-text-halo {
-  color: #f79351 !important;
 }
 .RINCIAN-PAKET {
   border-bottom-style: solid;

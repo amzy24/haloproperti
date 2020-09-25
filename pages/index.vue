@@ -23,15 +23,14 @@
         <div id="navbarBasicExample" class="navbar-menu">
           <div class="navbar-end">
             <div class="navbar-item">
-              <div class="buttons">
-                <button
-                  class="button is-light"
-                  @click="isCard2ModalActive = true"
-                >
-                  <strong>
-                    Gabung Mitra
-                  </strong>
-                </button>
+              <div class="buttons py-3">
+                <a href="/upload_profile_comm">
+                  <button class="button is-light">
+                    <strong>
+                      Gabung Mitra
+                    </strong>
+                  </button>
+                </a>
                 <button
                   class="button is-halo"
                   @click="isCardModalActive = true"
@@ -55,37 +54,38 @@
                     />
                   </a>
 
-                  <b-dropdown-item custom aria-role="menuitem">
-                    Logged as <b>Rafael Beraldo</b>
-                  </b-dropdown-item>
-                  <hr class="dropdown-divider" />
-                  <b-dropdown-item has-link aria-role="menuitem">
-                    <a href="https://google.com" target="_blank">
-                      <b-icon icon="link"></b-icon>
-                      Google (link)
-                    </a>
-                  </b-dropdown-item>
-                  <b-dropdown-item value="home" aria-role="menuitem">
-                    <b-icon icon="home"></b-icon>
-                    Home
-                  </b-dropdown-item>
-                  <b-dropdown-item value="products" aria-role="menuitem">
-                    <b-icon icon="cart"></b-icon>
-                    Products
-                  </b-dropdown-item>
-                  <b-dropdown-item value="blog" disabled aria-role="menuitem">
-                    <b-icon icon="book-open"></b-icon>
-                    Blog
-                  </b-dropdown-item>
-                  <hr class="dropdown-divider" aria-role="menuitem" />
-                  <b-dropdown-item value="settings">
-                    <b-icon icon="settings"></b-icon>
-                    Settings
-                  </b-dropdown-item>
-                  <b-dropdown-item value="logout" aria-role="menuitem">
-                    <b-icon icon="logout"></b-icon>
-                    Logout
-                  </b-dropdown-item>
+                  <div class="columns py-2 px-2">
+                    <div class="column">
+                      <h1>Saldo</h1>
+                      <b-dropdown-item has-link aria-role="menuitem">
+                        <a href="https://google.com" target="_blank">
+                          <b-icon icon="link"></b-icon>
+                          Google (link)
+                        </a>
+                      </b-dropdown-item>
+                      <b-dropdown-item value="home" aria-role="menuitem">
+                        <b-icon icon="home"></b-icon>
+                        Home
+                      </b-dropdown-item>
+                    </div>
+                    <div class="column">
+                      <h1>Account</h1>
+                      <b-dropdown-item has-link aria-role="menuitem">
+                        <a href="https://google.com" target="_blank">
+                          <b-icon icon="link"></b-icon>
+                          Google (link)
+                        </a>
+                      </b-dropdown-item>
+                      <b-dropdown-item value="home" aria-role="menuitem">
+                        <b-icon icon="home"></b-icon>
+                        Home
+                      </b-dropdown-item>
+                      <b-dropdown-item value="logout" aria-role="menuitem">
+                        <b-icon icon="logout"></b-icon>
+                        Logout
+                      </b-dropdown-item>
+                    </div>
+                  </div>
                 </b-dropdown>
               </div>
 
@@ -219,7 +219,77 @@
                           <button class="button is-halo">
                             Login
                           </button>
-                          <p>Belum memiliki akun? <a href="#">Gabung</a></p>
+                          <p>
+                            Belum memiliki akun?
+                            <button
+                              class="button is-light"
+                              @click="isCard2ModalActive = true"
+                            >
+                              <strong>
+                                Gabung Mitra
+                              </strong>
+                            </button>
+                          </p>
+                        </footer>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-content">
+                    <form action="">
+                      <div class="modal-card" style="width: auto;">
+                        <header class="modal-card-head">
+                          <p class="modal-card-title">Gabung Mitra</p>
+                          <button
+                            type="button"
+                            class="delete"
+                            @click="$emit('close')"
+                          />
+                        </header>
+                        <section class="modal-card-body">
+                          <b-field label="Username">
+                            <b-input
+                              type="username"
+                              :value="username"
+                              placeholder="Your username"
+                              required
+                            >
+                            </b-input>
+                          </b-field>
+
+                          <b-field label="Email">
+                            <b-input
+                              type="email"
+                              :value="email"
+                              placeholder="Your email"
+                              required
+                            >
+                            </b-input>
+                          </b-field>
+
+                          <b-field label="Password">
+                            <b-input
+                              type="password"
+                              :value="password"
+                              password-reveal
+                              placeholder="Your password"
+                              required
+                            >
+                            </b-input>
+                          </b-field>
+
+                          <b-checkbox
+                            ><p>
+                              Akan mematuhi ketentuan yang berlaku
+                            </p></b-checkbox
+                          >
+                        </section>
+                        <footer class="modal-card-foot">
+                          <button class="button is-halo">
+                            Gabung
+                          </button>
+                          <p>Telah Memiliki Akun? <a href="#">Masuk</a></p>
                         </footer>
                       </div>
                     </form>
@@ -555,5 +625,8 @@ img.foto.is-rounded {
   border-radius: 62%;
   width: 31pt;
   max-height: 100%;
+}
+.button.button {
+  margin-right: 0.5rem;
 }
 </style>

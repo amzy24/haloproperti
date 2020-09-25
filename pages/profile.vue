@@ -1,53 +1,5 @@
 <template>
-  <section class="ROOT section px-0 py-0">
-    <section class="HEADER section py-5 px-3 mx-6">
-      <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-          <a class="navbar-item" href="/">
-            <img src="~/assets/logo-halo.png" width="150" />
-          </a>
-
-          <a
-            role="button"
-            class="navbar-burger burger"
-            aria-label="menu"
-            aria-expanded="false"
-            data-target="navbarBasicExample"
-          >
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </a>
-        </div>
-
-        <div id="navbarBasicExample" class="navbar-menu">
-          <div class="navbar-start">
-            <b-field class="py-2 pl-4">
-              <b-input
-                placeholder="Pencarian . . . "
-                type="search"
-                icon-right="magnify"
-                icon-right-clickable="search"
-              >
-              </b-input>
-            </b-field>
-          </div>
-
-          <div class="navbar-end">
-            <div class="navbar-item">
-              <div class="buttons">
-                <a class="button is-light">
-                  <strong>Gabung Mitra</strong>
-                </a>
-                <a class="button is-halo">
-                  Masuk
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </nav>
-    </section>
+  <section>
     <section class="MAIN-TOP section pt-5 pb-6 px-3 mx-6">
       <div class="container">
         <div class="columns is-vcentered box">
@@ -156,9 +108,32 @@
                   <div class="p-1">
                     <b-menu class="is-custom-mobile is-size-6">
                       <b-menu-list label="Akun Personal">
-                        <b-menu-item active label="Profile"> </b-menu-item>
-                        <b-menu-item label="Password"></b-menu-item>
-                        <b-menu-item label="Pesanan Saya"></b-menu-item>
+                        <b-menu-item
+                          active
+                          label="Profile"
+                          @click="
+                            ;(showProfile = true),
+                              (showPassword = false),
+                              (showPesanan = false)
+                          "
+                        >
+                        </b-menu-item>
+                        <b-menu-item
+                          label="Password"
+                          @click="
+                            ;(showPassword = true),
+                              (showProfile = false),
+                              (showPesanan = false)
+                          "
+                        ></b-menu-item>
+                        <b-menu-item
+                          label="Pesanan Saya"
+                          @click="
+                            ;(showPesanan = true),
+                              (showProfile = false),
+                              (showPassword = false)
+                          "
+                        ></b-menu-item>
                       </b-menu-list>
                       <b-menu-list label="Mitra" disabled>
                         <b-menu-item label="Jasa" disabled></b-menu-item>
@@ -174,7 +149,7 @@
             </div>
           </div>
           <div class="column mx-5 px-5">
-            <div class="container">
+            <div class="container" v-if="showProfile">
               <div class="container my-5 is-size-5">Profile</div>
               <div class="PROFILE container mx-5 px-5">
                 <b-field label="Name" class="mb-5">
@@ -348,12 +323,12 @@
                 </b-field>
               </div>
               <div class="container has-text-centered">
-                <a class="button is-halo is-small">
+                <button class="button is-halo is-small">
                   Simpan
-                </a>
+                </button>
               </div>
             </div>
-            <div class="container">
+            <div class="container" v-if="showPassword">
               <div class="container my-5 is-size-5">Password</div>
               <div class="container has-text-right">
                 <div class="container is-size-7 mr-6">
@@ -387,12 +362,12 @@
                 </b-field>
               </div>
               <div class="container has-text-centered">
-                <a class="button is-halo is-small">
+                <button class="button is-halo is-small">
                   Simpan
-                </a>
+                </button>
               </div>
             </div>
-            <div class="container">
+            <div class="container" v-if="showPesanan">
               <div class="container my-5 is-size-5">Pesanan Saya</div>
               <b-tabs type="is-boxed" expanded>
                 <b-tab-item label="Semua">
@@ -433,7 +408,7 @@
                                   <button
                                     type="button"
                                     class="delete"
-                                    @click="$emit('close')"
+                                    @click="isComponentModalActive = false"
                                   />
                                 </header>
                                 <section class="modal-card-body">
@@ -983,6 +958,10 @@
 export default {
   data() {
     return {
+      showProfile: true,
+      showPassword: false,
+      showPesanan: false,
+
       isEditPhotoModal: false,
       isComponentModalActive: false,
       expandOnHover: false,
@@ -1017,39 +996,6 @@ export default {
 </script>
 
 <style>
-.has-text-halo {
-  color: #f79351;
-}
-.is-halo {
-  background: #f79351;
-}
-.has-background-halo {
-  background-color: #f79351;
-}
-.button.is-halo {
-  background-color: #f79351;
-  border-color: transparent;
-  color: #fff;
-  border-radius: 10px;
-}
-.navbar-start {
-  width: 80%;
-}
-.field.py-2 {
-  width: 80%;
-}
-.HEADER {
-  border-bottom-style: ridge;
-  border-color: hsl(0, 0%, 86%);
-  border-width: thin;
-}
-.navbar-start input {
-  border-radius: 8px;
-  border-color: darkgray;
-}
-.ROOT {
-  margin: 0rem 6rem;
-}
 .PHOTO-PROFILE {
   width: 10rem;
   height: 10rem;

@@ -1,207 +1,5 @@
 <template>
-  <section class="ROOT section px-0 py-0">
-    <section class="HEADER section py-5 px-3 mx-6">
-      <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-          <a class="navbar-item" href="/">
-            <img src="~/assets/logo-halo.png" width="150" />
-          </a>
-
-          <a
-            role="button"
-            class="navbar-burger burger"
-            aria-label="menu"
-            aria-expanded="false"
-            data-target="navbarBasicExample"
-          >
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </a>
-        </div>
-
-        <div id="navbarBasicExample" class="navbar-menu">
-          <div class="navbar-start">
-            <b-field class="py-2 pl-4">
-              <b-input
-                placeholder="Pencarian . . . "
-                type="search"
-                icon-right="magnify"
-                icon-right-clickable="search"
-              >
-              </b-input>
-            </b-field>
-          </div>
-
-          <div id="navbarBasicExample" class="navbar-menu">
-            <div class="navbar-end">
-              <div class="navbar-item">
-                <div class="buttons">
-                  <button
-                    class="button is-light"
-                    @click="isCard2ModalActive = true"
-                  >
-                    <strong>
-                      Gabung Mitra
-                    </strong>
-                  </button>
-                  <button
-                    class="button is-halo"
-                    @click="isCardModalActive = true"
-                  >
-                    <strong>
-                      Masuk
-                    </strong>
-                  </button>
-                </div>
-
-                <b-modal
-                  v-model="isCard2ModalActive"
-                  :width="640"
-                  scroll="keep"
-                >
-                  <div class="card">
-                    <div class="card-content">
-                      <form action="">
-                        <div class="modal-card" style="width: auto;">
-                          <header class="modal-card-head">
-                            <p class="modal-card-title">Gabung Mitra</p>
-                            <button
-                              type="button"
-                              class="delete"
-                              @click="$emit('close')"
-                            />
-                          </header>
-                          <section class="modal-card-body">
-                            <b-field label="Username">
-                              <b-input
-                                type="username"
-                                :value="username"
-                                placeholder="Your username"
-                                required
-                              >
-                              </b-input>
-                            </b-field>
-
-                            <b-field label="Email">
-                              <b-input
-                                type="email"
-                                :value="email"
-                                placeholder="Your email"
-                                required
-                              >
-                              </b-input>
-                            </b-field>
-
-                            <b-field label="Password">
-                              <b-input
-                                type="password"
-                                :value="password"
-                                password-reveal
-                                placeholder="Your password"
-                                required
-                              >
-                              </b-input>
-                            </b-field>
-
-                            <b-checkbox
-                              ><p>
-                                Akan mematuhi ketentuan yang berlaku
-                              </p></b-checkbox
-                            >
-                          </section>
-                          <footer class="modal-card-foot">
-                            <button class="button is-halo">
-                              Gabung
-                            </button>
-                            <p>Telah Memiliki Akun? <a href="#">Masuk</a></p>
-                          </footer>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                </b-modal>
-
-                <b-modal v-model="isCardModalActive" :width="640" scroll="keep">
-                  <div class="card">
-                    <div class="card-content">
-                      <form action="">
-                        <div class="modal-card" style="width: auto;">
-                          <header class="modal-card-head">
-                            <p class="modal-card-title">Login</p>
-                            <button
-                              type="button"
-                              class="delete"
-                              @click="$emit('close')"
-                            />
-                          </header>
-                          <section class="modal-card-body">
-                            <b-field label="Email">
-                              <b-input
-                                type="email"
-                                :value="email"
-                                placeholder="Your email"
-                                required
-                              >
-                              </b-input>
-                            </b-field>
-
-                            <b-field label="Password">
-                              <b-input
-                                type="password"
-                                :value="password"
-                                password-reveal
-                                placeholder="Your password"
-                                required
-                              >
-                              </b-input>
-                            </b-field>
-
-                            <b-checkbox>Remember me</b-checkbox>
-
-                            <div class="option mt-3 has-text-centered">
-                              <div><p>or login with</p></div>
-                              <a href="#">
-                                <img
-                                  src="https://img.icons8.com/color/30/000000/google-logo.png"
-                                  alt=""
-                                />
-                              </a>
-                              <a href="#">
-                                <img
-                                  src="https://img.icons8.com/color/30/000000/facebook-circled.png"
-                                  alt=""
-                                />
-                              </a>
-                              <a href="#">
-                                <img
-                                  src="https://img.icons8.com/material-sharp/30/000000/github.png"
-                                />
-                              </a>
-                              <a href="#">
-                                <img
-                                  src="https://img.icons8.com/color/30/000000/microsoft.png"
-                                />
-                              </a>
-                            </div>
-                          </section>
-                          <footer class="modal-card-foot">
-                            <button class="button is-halo">
-                              Login
-                            </button>
-                            <p>Belum memiliki akun? <a href="#">Gabung</a></p>
-                          </footer>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                </b-modal>
-              </div>
-            </div>
-          </div>
-        </div>
-      </nav>
-    </section>
+  <section>
     <nav class="navbar pt-2 mx-6">
       <div
         class="BREADCRUMB breadcrumb has-succeeds-separator is-small is-size-7 has-text-weight-medium"
@@ -248,9 +46,90 @@
                   </p>
                 </div>
                 <div class="column is-1 px-0">
-                  <b-button class="BUTTON-EDIT button is-small is-size-6">
+                  <b-button
+                    class="BUTTON-EDIT button is-small is-size-6"
+                    @click="isComponentModalActive = true"
+                  >
                     <p>Edit</p>
                   </b-button>
+                  <b-modal
+                    v-model="isComponentModalActive"
+                    has-modal-card
+                    trap-focus
+                    :destroy-on-hide="false"
+                    aria-role="dialog"
+                    aria-modal
+                  >
+                    <template #default="props">
+                      <modal-form v-bind="formProps" @close="props.close">
+                        <div class="modal-card" style="width: auto;">
+                          <header class="modal-card-head">
+                            <p class="modal-card-title">Edit Data</p>
+                            <button
+                              type="button"
+                              class="delete"
+                              @click="isComponentModalActive = false"
+                            />
+                          </header>
+                          <section class="modal-card-body">
+                            <div class="MODAL columns">
+                              <div class="column is-half">
+                                <b-field
+                                  label="Nama"
+                                  label-position="on-border"
+                                  class="pb-1"
+                                >
+                                  <b-input
+                                    value="Mohammad Ammar Ramzy"
+                                    required
+                                  >
+                                  </b-input>
+                                </b-field>
+
+                                <b-field
+                                  label="Nomor Telepon"
+                                  label-position="on-border"
+                                >
+                                  <b-input value="085730849169" required>
+                                  </b-input>
+                                </b-field>
+                                <b-checkbox
+                                  size="is-small"
+                                  class="my-0 py-0 mx-1"
+                                  >Simpan data</b-checkbox
+                                >
+                              </div>
+                              <div class="column is-half">
+                                <b-field
+                                  label="Alamat"
+                                  label-position="on-border"
+                                  class="my-0"
+                                >
+                                  <b-input
+                                    rows="3"
+                                    value="Jl. Masjid Al-Huda No.88 Ngadirejo, Kota Kediri, Jawa Timur 64122"
+                                    maxlength="200"
+                                    type="textarea"
+                                    required
+                                  ></b-input>
+                                </b-field>
+                              </div>
+                            </div>
+                          </section>
+                          <footer class="modal-card-foot">
+                            <button
+                              class="button"
+                              type="button"
+                              @click="isComponentModalActive = false"
+                            >
+                              Batal
+                            </button>
+                            <button class="button is-primary">Simpan</button>
+                          </footer>
+                        </div>
+                      </modal-form>
+                    </template>
+                  </b-modal>
                 </div>
               </div>
             </div>
@@ -436,6 +315,9 @@
 export default {
   data() {
     return {
+      isActive: false,
+      isComponentModalActive: false,
+
       isCard2ModalActive: false,
       isCardModalActive: false,
       activeTab: 'pictures',
@@ -455,42 +337,12 @@ export default {
 }
 </script>
 <style>
-.ROOT {
-  margin: 0rem 6rem;
-}
-.has-background-halo {
-  background-color: #f79351;
-}
-.button.is-halo {
-  background-color: #f79351;
-  border-color: transparent;
-  color: #fff;
-  border-radius: 10px;
-}
-.navbar-start {
-  width: 80%;
-}
-.field.py-2 {
-  width: 80%;
-}
-.HEADER {
-  border-bottom-style: ridge;
-  border-color: hsl(0, 0%, 86%);
-  border-width: thin;
-}
-.navbar-start input {
-  border-radius: 8px;
-  border-color: darkgray;
-}
 /* --------------HEADER to MAIN-------------- */
 .BREADCRUMB {
   margin: 0 auto;
 }
 .BREADCRUMB li {
   letter-spacing: 1.5px;
-}
-.has-text-halo {
-  color: #f79351 !important;
 }
 .BAYAR-PANEL {
   border-style: solid;
@@ -523,5 +375,9 @@ export default {
   border-width: thin;
   border-color: lightgrey;
   margin: 0rem 0.25rem;
+}
+.MODAL {
+  height: 140px;
+  width: 800px;
 }
 </style>

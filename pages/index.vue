@@ -1,307 +1,5 @@
 <template>
-  <section class="ROOT section px-0 py-0">
-    <section class="HEADER section py-5 px-3 mx-6">
-      <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-          <a class="navbar-item" href="/">
-            <img src="~/assets/2.png" width="150" />
-          </a>
-
-          <a
-            role="button"
-            class="navbar-burger burger"
-            aria-label="menu"
-            aria-expanded="false"
-            data-target="navbarBasicExample"
-          >
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </a>
-        </div>
-
-        <div id="navbarBasicExample" class="navbar-menu">
-          <div class="navbar-end">
-            <div class="navbar-item">
-              <div class="buttons py-3">
-                <a href="/upload_profile_comm">
-                  <button class="button is-light">
-                    <strong>
-                      Gabung Mitra
-                    </strong>
-                  </button>
-                </a>
-                <button
-                  class="button is-halo"
-                  @click="isCardModalActive = true"
-                >
-                  <strong>
-                    Masuk
-                  </strong>
-                </button>
-
-                <b-dropdown
-                  v-model="navigation"
-                  position="is-bottom-left"
-                  append-to-body
-                  aria-role="menu"
-                >
-                  <a class="navbar-item" slot="trigger" role="button">
-                    <img
-                      src="~assets/045-facebook.png"
-                      alt=""
-                      class="foto is-rounded"
-                    />
-                  </a>
-
-                  <div class="columns py-2 px-2">
-                    <div class="column">
-                      <h1>Saldo</h1>
-                      <b-dropdown-item has-link aria-role="menuitem">
-                        <a href="https://google.com" target="_blank">
-                          <b-icon icon="link"></b-icon>
-                          Google (link)
-                        </a>
-                      </b-dropdown-item>
-                      <b-dropdown-item value="home" aria-role="menuitem">
-                        <b-icon icon="home"></b-icon>
-                        Home
-                      </b-dropdown-item>
-                    </div>
-                    <div class="column">
-                      <h1>Account</h1>
-                      <b-dropdown-item has-link aria-role="menuitem">
-                        <a href="https://google.com" target="_blank">
-                          <b-icon icon="link"></b-icon>
-                          Google (link)
-                        </a>
-                      </b-dropdown-item>
-                      <b-dropdown-item value="home" aria-role="menuitem">
-                        <b-icon icon="home"></b-icon>
-                        Home
-                      </b-dropdown-item>
-                      <b-dropdown-item value="logout" aria-role="menuitem">
-                        <b-icon icon="logout"></b-icon>
-                        Logout
-                      </b-dropdown-item>
-                    </div>
-                  </div>
-                </b-dropdown>
-              </div>
-
-              <b-modal v-model="isCard2ModalActive" :width="640" scroll="keep">
-                <div class="card">
-                  <div class="card-content">
-                    <form action="">
-                      <div class="modal-card" style="width: auto;">
-                        <header class="modal-card-head">
-                          <p class="modal-card-title">Gabung Mitra</p>
-                          <button
-                            type="button"
-                            class="delete"
-                            @click="$emit('close')"
-                          />
-                        </header>
-                        <section class="modal-card-body">
-                          <b-field label="Username">
-                            <b-input
-                              type="username"
-                              :value="username"
-                              placeholder="Your username"
-                              required
-                            >
-                            </b-input>
-                          </b-field>
-
-                          <b-field label="Email">
-                            <b-input
-                              type="email"
-                              :value="email"
-                              placeholder="Your email"
-                              required
-                            >
-                            </b-input>
-                          </b-field>
-
-                          <b-field label="Password">
-                            <b-input
-                              type="password"
-                              :value="password"
-                              password-reveal
-                              placeholder="Your password"
-                              required
-                            >
-                            </b-input>
-                          </b-field>
-
-                          <b-checkbox
-                            ><p>
-                              Akan mematuhi ketentuan yang berlaku
-                            </p></b-checkbox
-                          >
-                        </section>
-                        <footer class="modal-card-foot">
-                          <button class="button is-halo">
-                            Gabung
-                          </button>
-                          <p>Telah Memiliki Akun? <a href="#">Masuk</a></p>
-                        </footer>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </b-modal>
-
-              <b-modal v-model="isCardModalActive" :width="640" scroll="keep">
-                <div class="card">
-                  <div class="card-content">
-                    <form action="">
-                      <div class="modal-card" style="width: auto;">
-                        <header class="modal-card-head">
-                          <p class="modal-card-title">Login</p>
-                          <button
-                            type="button"
-                            class="delete"
-                            @click="$emit('close')"
-                          />
-                        </header>
-                        <section class="modal-card-body">
-                          <b-field label="Email">
-                            <b-input
-                              type="email"
-                              :value="email"
-                              placeholder="Your email"
-                              required
-                            >
-                            </b-input>
-                          </b-field>
-
-                          <b-field label="Password">
-                            <b-input
-                              type="password"
-                              :value="password"
-                              password-reveal
-                              placeholder="Your password"
-                              required
-                            >
-                            </b-input>
-                          </b-field>
-
-                          <b-checkbox>Remember me</b-checkbox>
-
-                          <div class="option mt-3 has-text-centered">
-                            <div><p>or login with</p></div>
-                            <a href="#">
-                              <img
-                                src="https://img.icons8.com/color/30/000000/google-logo.png"
-                                alt=""
-                              />
-                            </a>
-                            <a href="#">
-                              <img
-                                src="https://img.icons8.com/color/30/000000/facebook-circled.png"
-                                alt=""
-                              />
-                            </a>
-                            <a href="#">
-                              <img
-                                src="https://img.icons8.com/material-sharp/30/000000/github.png"
-                              />
-                            </a>
-                            <a href="#">
-                              <img
-                                src="https://img.icons8.com/color/30/000000/microsoft.png"
-                              />
-                            </a>
-                          </div>
-                        </section>
-                        <footer class="modal-card-foot">
-                          <button class="button is-halo">
-                            Login
-                          </button>
-                          <p>
-                            Belum memiliki akun?
-                            <button
-                              class="button is-light"
-                              @click="isCard2ModalActive = true"
-                            >
-                              <strong>
-                                Gabung Mitra
-                              </strong>
-                            </button>
-                          </p>
-                        </footer>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-                <div class="card">
-                  <div class="card-content">
-                    <form action="">
-                      <div class="modal-card" style="width: auto;">
-                        <header class="modal-card-head">
-                          <p class="modal-card-title">Gabung Mitra</p>
-                          <button
-                            type="button"
-                            class="delete"
-                            @click="$emit('close')"
-                          />
-                        </header>
-                        <section class="modal-card-body">
-                          <b-field label="Username">
-                            <b-input
-                              type="username"
-                              :value="username"
-                              placeholder="Your username"
-                              required
-                            >
-                            </b-input>
-                          </b-field>
-
-                          <b-field label="Email">
-                            <b-input
-                              type="email"
-                              :value="email"
-                              placeholder="Your email"
-                              required
-                            >
-                            </b-input>
-                          </b-field>
-
-                          <b-field label="Password">
-                            <b-input
-                              type="password"
-                              :value="password"
-                              password-reveal
-                              placeholder="Your password"
-                              required
-                            >
-                            </b-input>
-                          </b-field>
-
-                          <b-checkbox
-                            ><p>
-                              Akan mematuhi ketentuan yang berlaku
-                            </p></b-checkbox
-                          >
-                        </section>
-                        <footer class="modal-card-foot">
-                          <button class="button is-halo">
-                            Gabung
-                          </button>
-                          <p>Telah Memiliki Akun? <a href="#">Masuk</a></p>
-                        </footer>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </b-modal>
-            </div>
-          </div>
-        </div>
-      </nav>
-    </section>
-
+  <section>
     <!-- ------------------------------------------------NAVER---------------------------------------------------------- -->
 
     <section class="TOP section py-6 px-3 mx-6">
@@ -445,10 +143,93 @@
               </div>
             </div>
           </div>
-          <div class="SHOW-MORE buttons py-5">
-            <button class="button is-small is-fullwidth has-text-weight-medium">
-              Lebih Banyak V
-            </button>
+          <div class="container pt-4" v-if="seeMore">
+            <div class="title is-4 has-text-weight-bold mb-3">
+              <p>
+                Produsen
+                <span class="title is-6 has-text-weight-medium"
+                  ><span>500</span> Mitra</span
+                >
+              </p>
+            </div>
+            <div class="columns is-mobile">
+              <div class="column is-one-third">
+                <figure class="image is-4by3">
+                  <a
+                    ><img
+                      src="https://github.com/amzy24/Item/blob/master/no-image-block.png?raw=true"
+                      alt=""
+                  /></a>
+                </figure>
+              </div>
+              <div class="column is-one-third">
+                <figure class="image is-4by3">
+                  <a
+                    ><img
+                      src="https://github.com/amzy24/Item/blob/master/no-image-block.png?raw=true"
+                      alt=""
+                  /></a>
+                </figure>
+              </div>
+              <div class="column is-one-third">
+                <figure class="image is-4by3">
+                  <a
+                    ><img
+                      src="https://github.com/amzy24/Item/blob/master/no-image-block.png?raw=true"
+                      alt=""
+                  /></a>
+                </figure>
+              </div>
+            </div>
+          </div>
+          <div class="container pt-4" v-if="seeMore">
+            <div class="title is-4 has-text-weight-bold mb-3">
+              <p>
+                Konsultan
+                <span class="title is-6 has-text-weight-medium"
+                  ><span>500</span> Mitra</span
+                >
+              </p>
+            </div>
+            <div class="columns is-mobile">
+              <div class="column is-one-third">
+                <figure class="image is-4by3">
+                  <a
+                    ><img
+                      src="https://github.com/amzy24/Item/blob/master/no-image-block.png?raw=true"
+                      alt=""
+                  /></a>
+                </figure>
+              </div>
+              <div class="column is-one-third">
+                <figure class="image is-4by3">
+                  <a
+                    ><img
+                      src="https://github.com/amzy24/Item/blob/master/no-image-block.png?raw=true"
+                      alt=""
+                  /></a>
+                </figure>
+              </div>
+              <div class="column is-one-third">
+                <figure class="image is-4by3">
+                  <a
+                    ><img
+                      src="https://github.com/amzy24/Item/blob/master/no-image-block.png?raw=true"
+                      alt=""
+                  /></a>
+                </figure>
+              </div>
+            </div>
+          </div>
+          <div
+            class="button is-small is-fullwidth my-5"
+            v-if="!seeMore"
+            @click="seeMore = true"
+          >
+            <strong>Lihat lebih banyak</strong>
+            <a class="card-header-icon">
+              <b-icon :icon="'menu-down'"> </b-icon>
+            </a>
           </div>
         </div>
       </div>
@@ -460,8 +241,11 @@
 export default {
   data() {
     return {
+      isActive: false,
       isCard2ModalActive: false,
       isCardModalActive: false,
+      seeMore: false,
+
       arrow: true,
       arrowHover: false,
       drag: true,
@@ -519,15 +303,6 @@ export default {
 </script>
 
 <style>
-.ROOT {
-  margin: 0rem 6rem;
-}
-.button.is-halo {
-  background-color: #f79351;
-  border-color: transparent;
-  color: #fff;
-  border-radius: 10px;
-}
 .SEARCH-BOX {
   max-width: 60%;
   border-radius: 10px;
@@ -594,12 +369,6 @@ figure img {
 }
 /* -------------RESPONSIVE--------------- */
 @media screen and (max-width: 768px) {
-  .ROOT {
-    margin: 0.25rem 0.25rem !important;
-  }
-  .HEADER {
-    margin: 0rem !important;
-  }
   .TOP {
     margin-left: 0.25rem !important;
     margin-right: 0.25rem !important;
@@ -620,13 +389,5 @@ figure img {
   figure img {
     border-radius: 5px;
   }
-}
-img.foto.is-rounded {
-  border-radius: 62%;
-  width: 31pt;
-  max-height: 100%;
-}
-.button.button {
-  margin-right: 0.5rem;
 }
 </style>

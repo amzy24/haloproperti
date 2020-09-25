@@ -1,53 +1,5 @@
 <template>
-  <section class="ROOT section px-0 py-0">
-    <section class="HEADER section py-5 px-3 mx-6">
-      <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-          <a class="navbar-item" href="/">
-            <img src="~/assets/logo-halo.png" width="150" />
-          </a>
-
-          <a
-            role="button"
-            class="navbar-burger burger"
-            aria-label="menu"
-            aria-expanded="false"
-            data-target="navbarBasicExample"
-          >
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </a>
-        </div>
-
-        <div id="navbarBasicExample" class="navbar-menu">
-          <div class="navbar-start">
-            <b-field class="py-2 pl-4">
-              <b-input
-                placeholder="Pencarian . . . "
-                type="search"
-                icon-right="magnify"
-                icon-right-clickable="search"
-              >
-              </b-input>
-            </b-field>
-          </div>
-
-          <div class="navbar-end">
-            <div class="navbar-item">
-              <div class="buttons">
-                <a class="button is-light">
-                  <strong>Gabung Mitra</strong>
-                </a>
-                <a class="button is-halo">
-                  Masuk
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </nav>
-    </section>
+  <section>
     <nav class="navbar pt-2 mx-6">
       <div
         class="BREADCRUMB breadcrumb has-succeeds-separator is-small is-size-7 has-text-weight-medium"
@@ -105,58 +57,36 @@
             </div>
           </div>
           <div class="mb-5">
-            <div>
-              <b-button class="button" size="is-small" expanded>
-                <div class="columns">
-                  <div class="column is-half has-text-left">
-                    Petunjuk Transfer Virtual Account
-                  </div>
-                  <div class="column is-half has-text-right">
-                    <b-icon :icon="active ? 'menu-up' : 'menu-down'"></b-icon>
-                  </div>
-                </div>
-              </b-button>
-              <div class="content mx-6 my-2">
-                <ol type="1">
-                  <li>Pilih Transaksi Lainnya.</li>
-                  <li>Pilih Pembayaran > Pembayaran Lainnya.</li>
-                  <li>Pilih Virtual Account.</li>
-                  <li>
-                    Masukkan kode bayar (no. Virtual Account), kemudian pilih
-                    Benar.
-                  </li>
-                  <li>
-                    Periksa informasi yang tertera di layar. Pastikan Merchant
-                    adalah Shopee, total tagihan sudah benar, dan username Anda
-                    {username}. Jika benar, pilih Benar.
-                  </li>
-                </ol>
+            <b-collapse
+              class="card"
+              animation="slide"
+              v-for="(collapse, index) of collapses"
+              :key="index"
+              :open="isOpen == index"
+              @open="isOpen = index"
+            >
+              <div
+                slot="trigger"
+                slot-scope="props"
+                class="card-header"
+                role="button"
+              >
+                <p
+                  class="card-header-title is-size-7 has-text-grey is-centered has-text-weight-normal"
+                >
+                  {{ collapse.title }}
+                </p>
+                <a class="card-header-icon">
+                  <b-icon :icon="props.open ? 'menu-up' : 'menu-down'">
+                  </b-icon>
+                </a>
               </div>
-            </div>
-            <div>
-              <b-button class="button" size="is-small" expanded>
-                <div class="columns">
-                  <div class="column is-half has-text-left">
-                    Petunjuk Transfer KlikBCA
-                  </div>
-                  <div class="column is-half has-text-right">
-                    <b-icon :icon="active ? 'menu-up' : 'menu-down'"></b-icon>
-                  </div>
+              <div class="card-content">
+                <div class="content">
+                  {{ collapse.text }}
                 </div>
-              </b-button>
-            </div>
-            <div>
-              <b-button class="button" size="is-small" expanded>
-                <div class="columns">
-                  <div class="column is-half has-text-left">
-                    Petunjuk Transfer m-BCA
-                  </div>
-                  <div class="column is-half has-text-right">
-                    <b-icon :icon="active ? 'menu-up' : 'menu-down'"></b-icon>
-                  </div>
-                </div>
-              </b-button>
-            </div>
+              </div>
+            </b-collapse>
           </div>
           <div class="my-4">
             <b-button
@@ -175,45 +105,38 @@
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      isActive: false,
+
+      isOpen: 0,
+      collapses: [
+        {
+          title: 'Petunjuk Transfer Virtual Account',
+          text:
+            'Pilih Transaksi Lainnya. <br/>Pilih Pembayaran > Pembayaran Lainnya. <br/>Pilih Virtual Account. <br/>Masukkan kode bayar (no. Virtual Account), kemudian pilih Benar. <br/>Periksa informasi yang tertera di layar. Pastikan Merchant adalah Shopee, total tagihan sudah benar, dan username Anda {username}. Jika benar, pilih Benar.',
+        },
+        {
+          title: 'Petunjuk Transfer KlikBCA',
+          text: 'Text 2',
+        },
+        {
+          title: 'Petunjuk Transfer m-BCA',
+          text: 'Text 3',
+        },
+      ],
+    }
+  },
+}
 </script>
 
 <style>
-.ROOT {
-  margin: 0rem 6rem;
-}
-.has-background-halo {
-  background-color: #f79351;
-}
-.button.is-halo {
-  background-color: #f79351;
-  border-color: transparent;
-  color: #fff;
-  border-radius: 10px;
-}
-.navbar-start {
-  width: 80%;
-}
-.field.py-2 {
-  width: 80%;
-}
-.HEADER {
-  border-bottom-style: ridge;
-  border-color: hsl(0, 0%, 86%);
-  border-width: thin;
-}
-.navbar-start input {
-  border-radius: 8px;
-  border-color: darkgray;
-}
 .BREADCRUMB {
   margin: 0 auto;
 }
 .BREADCRUMB li {
   letter-spacing: 1.5px;
-}
-.has-text-halo {
-  color: #f79351 !important;
 }
 .CENTER {
   margin: 0 auto;

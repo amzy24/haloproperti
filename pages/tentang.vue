@@ -228,21 +228,15 @@ export default {}
 </script>
 
 <style>
-.has-text-halo {
-  color: #f79351;
+footer.FOOTER.has-background-halo {
+  display: none !important;
+}
+section.HEADER.section.py-5.px-3.mx-6 {
+  display: none !important;
 }
 .is-halo {
   background: #f79351;
   color: #fff;
-}
-.has-background-halo {
-  background-color: #f79351;
-}
-.button.is-halo {
-  background-color: #f79351;
-  border-color: transparent;
-  color: #fff;
-  border-radius: 10px;
 }
 .NAVBAR a strong {
   letter-spacing: 0px;

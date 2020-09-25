@@ -1,217 +1,5 @@
 <template>
-  <section class="ROOT section px-0 py-0">
-    <section class="HEADER section py-5 px-3 mx-6">
-      <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-          <a class="navbar-item" href="/">
-            <img src="~/assets/2.png" width="150" />
-          </a>
-
-          <a
-            role="button"
-            class="navbar-burger burger"
-            aria-label="menu"
-            aria-expanded="false"
-            data-target="navbarBasicExample"
-          >
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </a>
-        </div>
-
-        <div id="navbarBasicExample" class="navbar-menu">
-          <div class="navbar-start">
-            <b-field class="py-2 pl-4">
-              <b-input
-                placeholder="Pencarian . . . "
-                type="search"
-                icon-right="magnify"
-                icon-right-clickable="search"
-              >
-              </b-input>
-            </b-field>
-          </div>
-          
-          <div id="navbarBasicExample" class="navbar-menu">
-            <div class="navbar-end">
-              <div class="navbar-item">
-                <div class="buttons">
-                  <button
-                    class="button is-light"
-                    @click="isCard2ModalActive = true"
-                  >
-                    <strong>
-                      Gabung Mitra
-                    </strong>
-                  </button>
-                  <button
-                    class="button is-halo"
-                    @click="isCardModalActive = true"
-                  >
-                    <strong>
-                      Masuk
-                    </strong>
-                  </button>
-                  <b-dropdown
-                    v-model="navigation"
-                    position="is-bottom-left"
-                    append-to-body
-                    aria-role="menu"
-                  >
-                    <a href="">
-                      <img src="~assets/045-facebook.png" alt="" />
-                    </a>
-                  </b-dropdown>
-                </div>
-
-                <b-modal
-                  v-model="isCard2ModalActive"
-                  :width="640"
-                  scroll="keep"
-                >
-                  <div class="card">
-                    <div class="card-content">
-                      <form action="">
-                        <div class="modal-card" style="width: auto;">
-                          <header class="modal-card-head">
-                            <p class="modal-card-title">Gabung Mitra</p>
-                            <button
-                              type="button"
-                              class="delete"
-                              @click="$emit('close')"
-                            />
-                          </header>
-                          <section class="modal-card-body">
-                            <b-field label="Username">
-                              <b-input
-                                type="username"
-                                :value="username"
-                                placeholder="Your username"
-                                required
-                              >
-                              </b-input>
-                            </b-field>
-
-                            <b-field label="Email">
-                              <b-input
-                                type="email"
-                                :value="email"
-                                placeholder="Your email"
-                                required
-                              >
-                              </b-input>
-                            </b-field>
-
-                            <b-field label="Password">
-                              <b-input
-                                type="password"
-                                :value="password"
-                                password-reveal
-                                placeholder="Your password"
-                                required
-                              >
-                              </b-input>
-                            </b-field>
-
-                            <b-checkbox
-                              ><p>
-                                Akan mematuhi ketentuan yang berlaku
-                              </p></b-checkbox
-                            >
-                          </section>
-                          <footer class="modal-card-foot">
-                            <button class="button is-halo">
-                              Gabung
-                            </button>
-                            <p>Telah Memiliki Akun? <a href="#">Masuk</a></p>
-                          </footer>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                </b-modal>
-
-                <b-modal v-model="isCardModalActive" :width="640" scroll="keep">
-                  <div class="card">
-                    <div class="card-content">
-                      <form action="">
-                        <div class="modal-card" style="width: auto;">
-                          <header class="modal-card-head">
-                            <p class="modal-card-title">Login</p>
-                            <button
-                              type="button"
-                              class="delete"
-                              @click="$emit('close')"
-                            />
-                          </header>
-                          <section class="modal-card-body">
-                            <b-field label="Email">
-                              <b-input
-                                type="email"
-                                :value="email"
-                                placeholder="Your email"
-                                required
-                              >
-                              </b-input>
-                            </b-field>
-
-                            <b-field label="Password">
-                              <b-input
-                                type="password"
-                                :value="password"
-                                password-reveal
-                                placeholder="Your password"
-                                required
-                              >
-                              </b-input>
-                            </b-field>
-
-                            <b-checkbox>Remember me</b-checkbox>
-
-                            <div class="option mt-3 has-text-centered">
-                              <div><p>or login with</p></div>
-                              <a href="#">
-                                <img
-                                  src="https://img.icons8.com/color/30/000000/google-logo.png"
-                                  alt=""
-                                />
-                              </a>
-                              <a href="#">
-                                <img
-                                  src="https://img.icons8.com/color/30/000000/facebook-circled.png"
-                                  alt=""
-                                />
-                              </a>
-                              <a href="#">
-                                <img
-                                  src="https://img.icons8.com/material-sharp/30/000000/github.png"
-                                />
-                              </a>
-                              <a href="#">
-                                <img
-                                  src="https://img.icons8.com/color/30/000000/microsoft.png"
-                                />
-                              </a>
-                            </div>
-                          </section>
-                          <footer class="modal-card-foot">
-                            <button class="button is-halo">
-                              Login
-                            </button>
-                            <p>Belum memiliki akun? <a href="#">Gabung</a></p>
-                          </footer>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                </b-modal>
-              </div>
-            </div>
-          </div>
-        </div>
-      </nav>
-    </section>
+  <section>
     <section class="MAIN-TOP section pt-5 pb-6 px-3 mx-6">
       <div class="container">
         <nav
@@ -240,24 +28,20 @@
           <div class="container columns mb-0 is-mobile">
             <div class="column container pr-1">
               <div class="PHOTO-PROFILE container">
-                <img
-                  src="https://raw.githubusercontent.com/AmzyZy24/Item/master/no-icon.png"
-                  alt=""
-                  width="100%"
-                />
+                <img :src="user.url" alt="" width="100%" />
                 <div class="DOT-STATUS container"></div>
               </div>
             </div>
             <div class="INFO column is-full pl-1">
               <div class="is-size-5 has-text-weight-semibold px-1">
-                Jokowi
+                {{ user.nama }}
               </div>
               <div class="is-one-fifth is-size-7 has-text-weight-normal px-1">
-                Mitra level <span>2</span>
+                Mitra level <span>{{ user.level }}</span>
               </div>
               <div class="RATING is-size-7 px-1 has-text-weight-bold">
                 <b-rate
-                  v-model="rating.rate"
+                  v-model="user.rating"
                   :icon-pack="rating.packs"
                   :icon="rating.icons"
                   :max="rating.maxs"
@@ -395,7 +179,7 @@
                       <button
                         type="button"
                         class="delete"
-                        @click="$emit('close')"
+                        @click="isComponentModalActive = false"
                       />
                     </header>
                     <section class="modal-card-body">
@@ -713,7 +497,10 @@
                   <button
                     class="URUTKAN button is-small has-text-centered mt-4 is-size-7"
                   >
-                    Urutkan V
+                    Urutkan
+                    <a class="card-header-icon">
+                      <b-icon :icon="'menu-down'"> </b-icon>
+                    </a>
                   </button>
                 </div>
               </div>
@@ -842,8 +629,137 @@
             </article>
           </div>
         </div>
-        <div class="button is-small is-fullwidth mx-2">
-          <strong>Lihat lebih banyak V</strong>
+        <div class="CARD-MITRA container pt-4 pb-5 mx-5" v-if="seeMore">
+          <div>
+            <div class="container columns mb-0 is-vcentered is-mobile">
+              <div class="column container pr-1">
+                <div class="PHOTO-PROFILE container">
+                  <img
+                    src="https://raw.githubusercontent.com/AmzyZy24/Item/master/no-icon.png"
+                    alt=""
+                    width="100%"
+                  />
+                </div>
+              </div>
+              <div class="CARD-INFO column is-full pl-1">
+                <div class="is-size-5 has-text-weight-semibold px-3">
+                  Jack
+                </div>
+                <div
+                  class="CARD-CITY is-one-fifth is-size-7 has-text-weight-normal px-3"
+                >
+                  Semarang
+                </div>
+                <div class="CARD-RATING is-size-7 px-3 has-text-weight-bold">
+                  <b-rate
+                    v-model="rating.rate"
+                    :icon-pack="rating.packs"
+                    :icon="rating.icons"
+                    max="1"
+                    :size="rating.sizes"
+                    :locale="rating.locale"
+                    :show-score="rating.score"
+                    :custom-text="rating.custom"
+                    :rtl="rating.isRtl"
+                    :spaced="rating.isSpaced"
+                    :disabled="rating.isDisabled"
+                  >
+                  </b-rate>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <article class="media">
+              <figure class="media-left px-2">
+                <p class="image is-64x64">
+                  <img src="https://bulma.io/images/placeholders/128x128.png" />
+                </p>
+              </figure>
+              <div class="media-content">
+                <div class="content is-size-7">
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Proin ornare magna eros, eu pellentesque tortor vestibulum
+                    ut. Maecenas non massa sem. Etiam finibus odio quis feugiat
+                    facilisis awodkapwogpjow apwokd apownrpa siondpia wpomap
+                    owndpawmpoandpam wpodm.
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+        <div class="CARD-MITRA container pt-4 pb-5 mx-5" v-if="seeMore">
+          <div>
+            <div class="container columns mb-0 is-vcentered is-mobile">
+              <div class="column container pr-1">
+                <div class="PHOTO-PROFILE container">
+                  <img
+                    src="https://raw.githubusercontent.com/AmzyZy24/Item/master/no-icon.png"
+                    alt=""
+                    width="100%"
+                  />
+                </div>
+              </div>
+              <div class="CARD-INFO column is-full pl-1">
+                <div class="is-size-5 has-text-weight-semibold px-3">
+                  Bobi
+                </div>
+                <div
+                  class="CARD-CITY is-one-fifth is-size-7 has-text-weight-normal px-3"
+                >
+                  Semarang
+                </div>
+                <div class="CARD-RATING is-size-7 px-3 has-text-weight-bold">
+                  <b-rate
+                    v-model="rating.rate"
+                    :icon-pack="rating.packs"
+                    :icon="rating.icons"
+                    max="1"
+                    :size="rating.sizes"
+                    :locale="rating.locale"
+                    :show-score="rating.score"
+                    :custom-text="rating.custom"
+                    :rtl="rating.isRtl"
+                    :spaced="rating.isSpaced"
+                    :disabled="rating.isDisabled"
+                  >
+                  </b-rate>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <article class="media">
+              <figure class="media-left px-2">
+                <p class="image is-64x64">
+                  <img src="https://bulma.io/images/placeholders/128x128.png" />
+                </p>
+              </figure>
+              <div class="media-content">
+                <div class="content is-size-7">
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Proin ornare magna eros, eu pellentesque tortor vestibulum
+                    ut. Maecenas non massa sem. Etiam finibus odio quis feugiat
+                    facilisis awodkapwogpjow apwokd apownrpa siondpia wpomap
+                    owndpawmpoandpam wpodm.
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+        <div
+          class="button is-small is-fullwidth"
+          v-if="!seeMore"
+          @click="seeMore = true"
+        >
+          <strong>Lihat lebih banyak</strong>
+          <a class="card-header-icon">
+            <b-icon :icon="'menu-down'"> </b-icon>
+          </a>
         </div>
       </div>
       <div class="CAROUSEL-LIST container mt-4">
@@ -876,9 +792,6 @@ const thisDay = new Date().getDate()
 
 export default {
   computed: {
-    // indicators() {
-    //   return this.bars ? 'bars' : 'dots'
-    // },
     baseTabs() {
       return [
         {
@@ -914,9 +827,11 @@ export default {
   },
   data() {
     return {
+      isActive: false,
       isComponentModalActive: false,
       isCard2ModalActive: false,
       isCardModalActive: false,
+      seeMore: false,
       // DATA DATE
       date: {
         // bars: true,
@@ -1002,6 +917,14 @@ export default {
       },
       activeTab: 0,
       radioButton: '',
+
+      user: {
+        nama: 'Jokowi',
+        level: 2,
+        rating: 4.5,
+        url:
+          'https://raw.githubusercontent.com/AmzyZy24/Item/master/no-icon.png',
+      },
     }
   },
   methods: {
@@ -1113,37 +1036,7 @@ export default {
 </script>
 
 <style>
-template {
-  font-family: 'Helvetica Neue';
-}
-.has-background-halo {
-  background-color: #f79351;
-}
-.button.is-halo {
-  background-color: #f79351;
-  border-color: transparent;
-  color: #fff;
-  border-radius: 10px;
-}
-.navbar-start {
-  width: 80%;
-}
-.field.py-2 {
-  width: 80%;
-}
-.HEADER {
-  border-bottom-style: ridge;
-  border-color: hsl(0, 0%, 86%);
-  border-width: thin;
-}
-.navbar-start input {
-  border-radius: 8px;
-  border-color: darkgray;
-}
 /* --------------HEADER to MAIN-------------- */
-.ROOT {
-  margin: 0rem 6rem;
-}
 .MAIN-TOP {
   border-bottom-style: ridge;
   border-color: hsl(0, 0%, 86%);
@@ -1340,12 +1233,6 @@ li {
   }
   .RECOM-IMAGE img {
     border-radius: 0.5rem;
-  }
-  .HEADER {
-    margin: 0rem !important;
-  }
-  .ROOT {
-    margin: 0.25rem 0.25rem !important;
   }
 }
 </style>

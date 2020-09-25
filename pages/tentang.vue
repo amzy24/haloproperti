@@ -234,6 +234,10 @@ footer.FOOTER.has-background-halo {
 section.HEADER.section.py-5.px-3.mx-6 {
   display: none !important;
 }
+section.ROOT.section.px-0.py-0 {
+  margin-right: 0px;
+  margin-left: 0px;
+}
 .is-halo {
   background: #f79351;
   color: #fff;

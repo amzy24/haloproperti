@@ -49,7 +49,11 @@
                   </a>
                   <button
                     class="button is-halo mx-3"
-                    @click="isCardModalActive = true"
+                    @click="
+                      ;(isCardModalActive = true),
+                        (isMasuk = true),
+                        (isGabung = false)
+                    "
                   >
                     <strong>
                       Masuk
@@ -105,7 +109,7 @@
                 </div>
 
                 <b-modal v-model="isCardModalActive" :width="640" scroll="keep">
-                  <div class="card">
+                  <div class="card" v-if="isMasuk">
                     <div class="card-content">
                       <form action="">
                         <div class="modal-card" style="width: auto;">
@@ -114,7 +118,7 @@
                             <button
                               type="button"
                               class="delete"
-                              @click="$emit('close')"
+                              @click="isCardModalActive = false"
                             />
                           </header>
                           <section class="modal-card-body">
@@ -142,52 +146,52 @@
                             <b-checkbox>Remember me</b-checkbox>
 
                             <div class="option mt-3 has-text-centered">
-                              <div><p>or login with</p></div>
-                              <a href="#">
+                              <div><p class="my-2">or login with</p></div>
+                              <a href="#" class="mx-2">
                                 <img
                                   src="https://img.icons8.com/color/30/000000/google-logo.png"
                                   alt=""
                                 />
                               </a>
-                              <a href="#">
+                              <a href="#" class="mx-2">
                                 <img
                                   src="https://img.icons8.com/color/30/000000/facebook-circled.png"
                                   alt=""
                                 />
                               </a>
-                              <a href="#">
+                              <a href="#" class="mx-2">
                                 <img
                                   src="https://img.icons8.com/material-sharp/30/000000/github.png"
                                 />
                               </a>
-                              <a href="#">
+                              <a href="#" class="mx-2">
                                 <img
                                   src="https://img.icons8.com/color/30/000000/microsoft.png"
                                 />
                               </a>
                             </div>
                           </section>
-                          <footer class="modal-card-foot">
+                          <footer class="modal-card-foot has-text-vcentered">
                             <button class="button is-halo">
                               Login
                             </button>
-                            <p>
+                            <p class="is-size-7 mx-2">
                               Belum memiliki akun?
-                              <button
-                                class="button is-light"
-                                @click="isCard2ModalActive = true"
-                              >
-                                <strong>
-                                  Gabung Mitra
-                                </strong>
-                              </button>
                             </p>
+                            <button
+                              class="button is-light my-0 py-0"
+                              @click=";(isGabung = true), (isMasuk = false)"
+                            >
+                              <strong>
+                                Gabung Mitra
+                              </strong>
+                            </button>
                           </footer>
                         </div>
                       </form>
                     </div>
                   </div>
-                  <div class="card">
+                  <div class="card" v-if="isGabung">
                     <div class="card-content">
                       <form action="">
                         <div class="modal-card" style="width: auto;">
@@ -196,7 +200,7 @@
                             <button
                               type="button"
                               class="delete"
-                              @click="$emit('close')"
+                              @click="isCardModalActive = false"
                             />
                           </header>
                           <section class="modal-card-body">
@@ -241,7 +245,12 @@
                             <button class="button is-halo">
                               Gabung
                             </button>
-                            <p>Telah Memiliki Akun? <a href="#">Masuk</a></p>
+                            <p class="is-size-7 mx-2">
+                              Telah Memiliki Akun?
+                              <a @click=";(isGabung = false), (isMasuk = true)"
+                                >Masuk</a
+                              >
+                            </p>
                           </footer>
                         </div>
                       </form>
@@ -335,9 +344,10 @@ export default {
     return {
       isActive: false,
       isComponentModalActive: false,
-      isCard2ModalActive: false,
       isCardModalActive: false,
       seeMore: false,
+      isMasuk: false,
+      isGabung: false,
     }
   },
 }

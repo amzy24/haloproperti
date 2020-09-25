@@ -303,6 +303,14 @@ export default {
 </script>
 
 <style>
+.navbar-start {
+  display: none;
+}
+.HEADER {
+  border-bottom-style: none;
+  border-color: none;
+  border-width: none;
+}
 .SEARCH-BOX {
   max-width: 60%;
   border-radius: 10px;
